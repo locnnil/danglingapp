@@ -1,0 +1,7 @@
+services:
+  refusekills:
+    image: img-t
+    container_name: danglingapp
+    restart: always
+    build:
+      context: .
