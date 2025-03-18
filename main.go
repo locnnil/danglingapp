@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -29,8 +30,10 @@ func main() {
 
 	go func() {
 		for sig := range signalChan {
-			fmt.Printf("Received signal: %s, but ignoring it.\n", sig)
-			time.Sleep(1 * time.Second)
+			msg := fmt.Sprintf("Received signal: %s, but ignoring it.\n", sig)
+			fmt.Printf("%s", msg)
+			log.Printf("%s", msg)
+			time.Sleep(30 * time.Second)
 		}
 	}()
 
